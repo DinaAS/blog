@@ -1,0 +1,12 @@
+@import '/src/scss/vars';
+
+.container {
+  background-color: $main-background-color;
+  height: 100vh;
+  overflow: auto;
+}
+
+.main {
+  margin: 0 auto;
+  width: 65%;
+}

@@ -1,0 +1,101 @@
+@import '/src/scss/vars';
+
+.container {
+  max-width: 941px;
+  background-color: $white-background-color;
+  margin-bottom: 26px;
+  border-radius: 5px;
+  padding: 15px 14px 24px 19px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+
+  .left_info {
+    display: flex;
+    flex-direction: column;
+
+    .title_left {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+
+      .title {
+        margin-right: 20px;
+        color: $info-color;
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+      .icon_like {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+      }
+
+      .count_likes {
+        color: $text-color;
+      }
+    }
+
+    .tags_group {
+      display: flex;
+
+      li {
+        margin-right: 8px;
+      }
+    }
+
+    .btn_tag {
+      color: $text-color-secondary;
+      width: fit-content;
+      padding: 2px 6px 3px 5px;
+      font-size: 12px;
+      line-height: 15px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 2px;
+
+      :not(:first-child) {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  .right_info {
+    display: flex;
+
+    .author_name {
+      display: block;
+      font-size: 18px;
+      line-height: 28px;
+      text-align: end;
+      color: $heading-color;
+    }
+
+    .date {
+      display: block;
+      font-size: 12px;
+      line-height: 22px;
+      text-align: end;
+      color: $text-color-secondary;
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+    }
+  }
+}
+
+.description {
+  max-width: 682px;
+
+  span {
+    color: $text-color;
+    font-size: 12px;
+    line-height: 22px;
+  }
+}

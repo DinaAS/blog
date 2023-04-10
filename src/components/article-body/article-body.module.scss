@@ -1,0 +1,19 @@
+@import '/src/scss/vars';
+
+.container {
+  background-color: $white-background-color;
+  height: 80%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.body_wrapper {
+  margin-top: -26px;
+  padding-left: 19px;
+  padding-right: 14px;
+  min-height: 65vh;
+}
+
+.loading {
+  margin: 0 auto;
+  width: -webkit-fill-available;
+}

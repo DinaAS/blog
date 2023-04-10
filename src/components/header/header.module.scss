@@ -1,0 +1,39 @@
+@import '/src/scss/vars';
+
+.container {
+  background-color: $white-background-color;
+  margin-bottom: 26px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+
+  h1 {
+    font-size: 18px;
+    line-height: 28px;
+    color: $heading-color;
+  }
+}
+
+.btn_group {
+  button {
+    border: none;
+    background-color: inherit;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  button:first-child {
+    margin-right: 19px;
+  }
+
+  .sign_up {
+    padding: 6px 18px;
+    border: 1px solid $success-color;
+    border-radius: 5px;
+    color: $success-color;
+  }
+}

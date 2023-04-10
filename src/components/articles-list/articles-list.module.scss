@@ -1,0 +1,14 @@
+.loading {
+  margin: 0 auto;
+  width: -webkit-fill-available;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination {
+  margin: 0 auto;
+  width: fit-content;
+}
