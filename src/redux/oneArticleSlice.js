@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 export const fetchOneArticle = createAsyncThunk(
   'article/getOneArticle',
 
-  async (slug, { rejectedValue }) => {
+  async (slug, { rejectWithValue }) => {
     try {
       const res = await fetch(`https://blog.kata.academy/api/articles/${slug}`)
 
@@ -13,7 +13,7 @@ export const fetchOneArticle = createAsyncThunk(
       const data = res.json()
       return data
     } catch (error) {
-      return rejectedValue(error.message)
+      return rejectWithValue(error.res.data)
     }
   }
 )

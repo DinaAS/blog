@@ -109,10 +109,19 @@ input {
   border-radius: 0;
 }
 
+input[type='checkbox' i] {
+  appearance: none;
+  margin: 0;
+}
+
 button {
   margin: 0;
   padding: 0;
   border: none;
   background-color: inherit;
   cursor: pointer;
+}
+
+:focus-visible {
+  outline: none;
 }

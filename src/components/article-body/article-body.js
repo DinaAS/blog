@@ -14,11 +14,7 @@ function ArticleBody() {
     <div className={styles.container}>
       {loading && <Spin className={styles.loading} tip="Loading" />}
       {!loading && <ArticleHeader article={article} />}
-      {!loading && (
-        <div className={styles.body_wrapper}>
-          <Markdown>{article.body}</Markdown>
-        </div>
-      )}
+      {!loading && <div className={styles.body_wrapper}>{article.body && <Markdown>{article.body}</Markdown>}</div>}
     </div>
   )
 }

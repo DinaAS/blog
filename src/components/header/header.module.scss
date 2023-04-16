@@ -18,22 +18,71 @@
   }
 }
 
-.btn_group {
-  button {
-    border: none;
-    background-color: inherit;
+.out_group {
+  display: flex;
+  a {
+    display: block;
+    align-self: center;
+    color: $heading-color;
     font-size: 18px;
     line-height: 28px;
   }
 
-  button:first-child {
+  // a:active {
+  //   color: ;
+  // }
+
+  a:first-child {
     margin-right: 19px;
   }
 
   .sign_up {
+    display: block;
     padding: 6px 18px;
     border: 1px solid $success-color;
     border-radius: 5px;
+    font-size: 18px;
+    line-height: 28px;
     color: $success-color;
+  }
+}
+
+.auth_group {
+  display: flex;
+  align-items: center;
+
+  .create_article {
+    display: block;
+    padding: 6px 10px;
+    margin-right: 26px;
+    border: 1px solid $success-color;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 22px;
+    color: $success-color;
+  }
+
+  .user_name {
+    margin-right: 13px;
+    font-size: 18px;
+    line-height: 28px;
+    color: $heading-color;
+  }
+
+  .user_image {
+    width: 46px;
+    height: 46px;
+    margin-right: 27px;
+    border-radius: 50%;
+  }
+
+  .log_out_btn {
+    display: block;
+    padding: 6px 18px 10px;
+    border: 1px solid $text-color;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 28px;
+    color: $text-color;
   }
 }

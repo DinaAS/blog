@@ -1,0 +1,139 @@
+@import '/src/scss/vars';
+
+.container {
+  max-width: 384px;
+  margin: 0 auto;
+  margin-top: 59px;
+  margin-bottom: 239px;
+  padding: 32px 48px;
+  background-color: $white-background-color;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0px 22px 106px rgba(0, 0, 0, 0.07), 0px 9.19107px 44.2843px rgba(0, 0, 0, 0.0503198),
+    0px 4.91399px 23.6765px rgba(0, 0, 0, 0.0417275), 0px 2.75474px 13.2728px rgba(0, 0, 0, 0.035),
+    0px 1.46302px 7.04911px rgba(0, 0, 0, 0.0282725), 0px 0.608796px 2.93329px rgba(0, 0, 0, 0.0196802);
+  border-radius: 6px;
+}
+
+.title {
+  display: block;
+  margin-bottom: 21px;
+  text-align: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: $text-color-form;
+}
+
+.form {
+  label {
+    display: block;
+    margin-bottom: 2px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: $text-color-form;
+  }
+
+  input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $text-color-input;
+  }
+
+  .err {
+    border: 1px solid $danger-color;
+  }
+
+  .error_message {
+    margin-top: -12px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+
+    color: $danger-color;
+  }
+
+  hr {
+    width: 100%;
+    margin: 0;
+    margin-top: 9px;
+    margin-bottom: 8px;
+    border: 1px solid #e8e8e8;
+  }
+
+  .checkbox {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    margin-right: 0.5em;
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+
+  .checked {
+    width: 16px;
+    border: 1px solid #1890ff !important;
+    background-color: #1890ff !important;
+    background-image: url('./check.png') !important;
+  }
+
+  .subscribe {
+    display: flex;
+    margin-bottom: 21px;
+  }
+
+  .subscribe label {
+    margin-top: -5px;
+    margin-bottom: 0;
+  }
+
+  button {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px;
+    background-color: $info-color;
+    color: $white-background-color;
+    border-radius: 4px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.desrcription {
+  display: block;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+
+  color: #8c8c8c;
+
+  a {
+    color: $info-color;
+  }
+}
