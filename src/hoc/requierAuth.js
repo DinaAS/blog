@@ -6,7 +6,7 @@ function RequireAuth({ children }) {
   const auth = useSelector((state) => state.user.userData)
 
   if (!auth) {
-    return <Navigate to="/sign-up" state={{ from: location }} />
+    return <Navigate to="/sign-in" state={{ from: location }} />
   }
   return children
 }

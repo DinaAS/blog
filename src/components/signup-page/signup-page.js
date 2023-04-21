@@ -1,13 +1,20 @@
 import cn from 'classnames'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 import { registerNewUser } from '../../redux/userSlice'
+import actions from '../../redux/actions'
 
 import styles from './signup-page.module.scss'
 
 function SignupPage() {
+  const userState = useSelector((state) => state.user)
+  const isSuccess = useSelector((state) => state.user.successRegistration)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
   const {
     register,
     watch,
@@ -17,13 +24,15 @@ function SignupPage() {
     mode: 'onChange',
   })
 
-  const userState = useSelector((state) => state.user)
+  useEffect(() => {
+    dispatch(actions.user.clearSuccess())
+  }, [])
 
-  // const navigate = useNavigate()
-  // const location = useLocation()
-  const dispatch = useDispatch()
-
-  // const fromPage = location.state?.from?.pathname || '/'
+  useEffect(() => {
+    if (isSuccess && !userState.loading && !userState.error) {
+      navigate('/sign-in')
+    }
+  }, [isSuccess])
 
   const isValidEmail = (email) =>
     // eslint-disable-next-line no-useless-escape
@@ -36,7 +45,7 @@ function SignupPage() {
     return isValid
   }
 
-  const onSubmit = async (data, e) => {
+  const onSubmit = (data, e) => {
     e.preventDefault()
     const { username, email, password } = data
 
@@ -45,11 +54,7 @@ function SignupPage() {
       email,
       password,
     }
-    dispatch(await registerNewUser({ user }))
-
-    // if (!userState.loading && !userState.error) {
-    //   navigate(fromPage)
-    // }
+    dispatch(registerNewUser({ user }))
   }
 
   const errorMessage = userState.error ? (

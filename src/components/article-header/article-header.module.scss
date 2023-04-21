@@ -36,6 +36,10 @@
         margin-right: 5px;
       }
 
+      .icon_like_active {
+        color: $danger-color;
+      }
+
       .count_likes {
         color: $text-color;
       }
@@ -97,5 +101,21 @@
     color: $text-color;
     font-size: 12px;
     line-height: 22px;
+  }
+}
+
+.error_message {
+  display: inline-block;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+
+  color: $danger-color;
+
+  a {
+    color: $info-color;
   }
 }

@@ -8,7 +8,7 @@ import { fetchArticles } from '../../redux/articleSlice'
 import styles from './articles-list.module.scss'
 
 function ArticlesList() {
-  const articles = useSelector((state) => state.articles.articles)
+  const articles = useSelector((state) => state.articles.articlesList)
   const loading = useSelector((state) => state.articles.loading)
 
   const dispatch = useDispatch()

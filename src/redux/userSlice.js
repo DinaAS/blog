@@ -74,10 +74,20 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     userData: null,
+    successRegistration: false,
     loading: false,
     error: null,
   },
   reducers: {
+    clearSuccess: (state) => {
+      return {
+        ...state,
+        successRegistration: false,
+      }
+    },
+    loginUser: (state, action) => {
+      state.userData = action.payload
+    },
     logOutUser: (state) => {
       state.userData = null
     },
@@ -103,6 +113,7 @@ const userSlice = createSlice({
         return {
           ...state,
           loading: false,
+          successRegistration: true,
           error: null,
         }
       })
@@ -192,6 +203,6 @@ const userSlice = createSlice({
   },
 })
 
-export const { logOutUser } = userSlice.actions
+export const { logOutUser, loginUser, clearSuccess } = userSlice.actions
 
 export default userSlice.reducer

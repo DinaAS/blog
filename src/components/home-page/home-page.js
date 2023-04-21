@@ -12,14 +12,11 @@ function HomePage() {
   const error = useSelector((state) => state.articles.error)
 
   useEffect(() => {
-    async function fetchData() {
-      await dispatch(fetchArticles())
-    }
-    fetchData()
+    dispatch(fetchArticles())
   }, [])
 
   const errorCatch = error ? (
-    <Alert className={styles.error} message="Something went wrong" description="Server error" type="error" />
+    <Alert className={styles.error} message="Something went wrong" description={error} type="error" />
   ) : null
 
   return (

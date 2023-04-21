@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 import actions from '../../redux/actions'
 
@@ -10,15 +11,24 @@ function Header() {
   const navigate = useNavigate()
   const { userData } = useSelector((state) => state.user)
 
+  useEffect(() => {
+    const user = window.localStorage.getItem('userData')
+    if (!userData && JSON.parse(user)) {
+      dispatch(actions.user.loginUser(JSON.parse(user)))
+    }
+  }, [])
+
   const handleOnLogOutClick = (e) => {
     e.preventDefault()
     dispatch(actions.user.logOutUser())
+    window.localStorage.removeItem('userData')
+    window.localStorage.removeItem('favoritesUserArticles')
     navigate('/')
   }
 
   const inAuthContent = userData ? (
     <div className={styles.auth_group}>
-      <Link to="create-article" className={styles.create_article}>
+      <Link to="new-article" className={styles.create_article}>
         Create article
       </Link>
       <Link to="profile" className={styles.user_name}>
@@ -32,6 +42,7 @@ function Header() {
       </Link>
     </div>
   ) : null
+
   const logOutContent = !userData ? (
     <div className={styles.out_group}>
       <Link to="sign-in">Sign In</Link>

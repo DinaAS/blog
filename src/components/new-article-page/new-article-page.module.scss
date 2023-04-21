@@ -1,11 +1,10 @@
 @import '/src/scss/vars';
 
 .container {
-  max-width: 384px;
-  margin: 0 auto;
-  padding: 48px 36px;
+  width: 65%;
+  padding: 48px 32px;
+  margin: 34px auto;
   background-color: $white-background-color;
-
   border: 1px solid #d9d9d9;
   box-shadow: 0px 22px 106px rgba(0, 0, 0, 0.07), 0px 9.19107px 44.2843px rgba(0, 0, 0, 0.0503198),
     0px 4.91399px 23.6765px rgba(0, 0, 0, 0.0417275), 0px 2.75474px 13.2728px rgba(0, 0, 0, 0.035),
@@ -25,7 +24,13 @@
   color: $text-color-form;
 }
 
+.spin {
+  margin: 0 auto;
+}
+
 .form {
+  height: fit-content;
+
   label {
     display: block;
     margin-bottom: 2px;
@@ -37,10 +42,12 @@
     color: $text-color-form;
   }
 
-  input {
+  input,
+  textarea {
     width: 100%;
     height: 40px;
-    margin-bottom: 12px;
+    margin-bottom: 21px;
+    padding: 8px 12px;
     border: 1px solid #d9d9d9;
     border-radius: 4px;
     font-family: 'Roboto';
@@ -48,7 +55,21 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    color: $text-color;
+  }
+
+  input::placeholder {
     color: $text-color-input;
+  }
+
+  input::placeholder:focus {
+    color: transparent;
+  }
+
+  .body_input {
+    height: 168px;
+    overflow: auto;
+    resize: none;
   }
 
   .err {
@@ -66,8 +87,8 @@
     color: $danger-color;
   }
 
-  button {
-    width: 100%;
+  button[type='submit'] {
+    width: 319px;
     height: 40px;
     margin-bottom: 8px;
     background-color: $info-color;
@@ -82,12 +103,55 @@
   }
 }
 
-.loading {
-  margin: 0 auto;
-  width: -webkit-fill-available;
-}
+.tags_group {
+  span {
+    display: block;
+    margin-bottom: 2px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: $text-color-form;
+  }
 
-.error {
-  max-width: 60%;
-  margin: 0 auto;
+  .tag_input {
+    width: 300px;
+    margin-right: 21px;
+  }
+
+  .tag_delete {
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    padding: 7px 16px;
+    margin-right: 21px;
+    color: $danger-color;
+    border: 1px solid $danger-color;
+    border-radius: 4px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .tag_add {
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    padding: 7px 16px;
+    color: $info-color;
+    border: 1px solid $info-color;
+    border-radius: 4px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
 }

@@ -2,6 +2,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 import { fetchAuthorizationUser } from '../../redux/userSlice'
 
@@ -9,11 +10,20 @@ import styles from './login-page.module.scss'
 
 function LoginPage() {
   const userState = useSelector((state) => state.user)
+  const userData = useSelector((state) => state.user.userData)
   const location = useLocation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const fromPage = location.state?.from?.pathname || '/'
+
+  useEffect(() => {
+    if (userData && !userState.loading && !userState.error) {
+      window.localStorage.setItem('userData', JSON.stringify(userData))
+      window.localStorage.setItem('favoritesUserArticles', JSON.stringify(['test']))
+      navigate(fromPage)
+    }
+  }, [userData])
 
   const {
     register,
@@ -34,18 +44,14 @@ function LoginPage() {
     return isValid
   }
 
-  const onSubmit = async (data, e) => {
+  const onSubmit = (data, e) => {
     e.preventDefault()
     const user = {
       email: data.email,
       password: data.password,
     }
 
-    dispatch(await fetchAuthorizationUser({ user }))
-
-    if (!userState.loading && !userState.error) {
-      navigate(fromPage)
-    }
+    dispatch(fetchAuthorizationUser({ user }))
   }
 
   const errorMessage = userState.error ? (

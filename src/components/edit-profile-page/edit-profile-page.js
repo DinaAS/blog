@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form'
 import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { Spin, Alert } from 'antd'
 
 import { updateUser } from '../../redux/userSlice'
 
@@ -9,6 +11,7 @@ import styles from './edit-profile-page.module.scss'
 function EditProfilePage() {
   const dispatch = useDispatch()
   const { userData } = useSelector((state) => state.user)
+  const userState = useSelector((state) => state.user)
   const {
     register,
     formState: { errors },
@@ -22,6 +25,12 @@ function EditProfilePage() {
     },
   })
 
+  const { loading, error } = userState
+
+  useEffect(() => {
+    window.localStorage.setItem('userData', JSON.stringify(userData))
+  }, [userData])
+
   const isValidEmail = (email) =>
     // eslint-disable-next-line no-useless-escape
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
@@ -33,7 +42,7 @@ function EditProfilePage() {
     return isValid
   }
 
-  const onSubmit = async (data, e) => {
+  const onSubmit = (data, e) => {
     e.preventDefault()
     const { username, email, newPassword, avatar } = data
     let user
@@ -51,12 +60,14 @@ function EditProfilePage() {
         image: avatar,
       }
     }
-    dispatch(await updateUser({ user }))
+    dispatch(updateUser({ user }))
   }
 
   return (
     <div className={styles.container}>
       <span className={styles.title}>Edit Profile</span>
+      {loading && <Spin className={styles.loading} tip="Loading" />}
+      {error && <Alert className={styles.error} message="Something went wrong" description={`${error}`} type="error" />}
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="username">Username</label>
         <input
