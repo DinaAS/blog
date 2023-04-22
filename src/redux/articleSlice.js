@@ -129,7 +129,7 @@ const articlesSlice = createSlice({
   initialState: {
     articlesList: [],
     article: null,
-
+    // pagination : 1,
     postArticleSuccess: false,
     deleteArticleSuccess: false,
     updateArticleSuccess: false,

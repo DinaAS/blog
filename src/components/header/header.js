@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 
 import actions from '../../redux/actions'
+import { fetchArticles } from '../../redux/articleSlice'
 
 import styles from './header.module.scss'
 
@@ -24,6 +25,11 @@ function Header() {
     window.localStorage.removeItem('userData')
     window.localStorage.removeItem('favoritesUserArticles')
     navigate('/')
+  }
+
+  const onClickHomePage = () => {
+    dispatch(fetchArticles())
+    window.localStorage.setItem('pagination', JSON.stringify(1))
   }
 
   const inAuthContent = userData ? (
@@ -55,7 +61,7 @@ function Header() {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <Link to="/">
+        <Link to="/" onClick={onClickHomePage}>
           <h1>Realworld Blog</h1>
         </Link>
         {inAuthContent}

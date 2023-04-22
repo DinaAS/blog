@@ -25,13 +25,16 @@ function ArticleHeader({ article }) {
 
   const tagsGroup = tagList.map((tag) => {
     const keyButton = useId()
-    return (
-      <li key={keyButton}>
-        <button className={styles.btn_tag} type="button">
-          {truncate(tag, { length: 15, omission: '...' })}
-        </button>
-      </li>
-    )
+    if (tag.trim().length > 0) {
+      return (
+        <li key={keyButton}>
+          <button className={styles.btn_tag} type="button">
+            {truncate(tag, { length: 15, omission: '...' })}
+          </button>
+        </li>
+      )
+    }
+    return undefined
   })
 
   const onClickArticle = () => {

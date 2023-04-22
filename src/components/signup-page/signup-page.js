@@ -124,6 +124,7 @@ function SignupPage() {
               message: 'Your username must be no more than 40 characters.',
             },
           })}
+          type="password"
           placeholder="Password"
           className={cn(errors?.password && styles.err)}
         />
@@ -145,6 +146,7 @@ function SignupPage() {
               return undefined
             },
           })}
+          type="password"
           placeholder="Repeat Password"
           className={cn(errors?.confirm_password && styles.err)}
         />

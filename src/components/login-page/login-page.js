@@ -85,6 +85,7 @@ function LoginPage() {
           {...register('password', {
             required: 'The field is required',
           })}
+          type="password"
           className={cn(errors?.password && styles.err)}
           placeholder="Password"
         />

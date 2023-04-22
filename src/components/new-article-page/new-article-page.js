@@ -130,18 +130,20 @@ function NewArticlePage() {
                   <input
                     {...register(`tags.${index}.tag`, {
                       required: true,
-                      minLength: {
-                        value: 3,
-                        message: 'Your tag needs to be at least 3 characters.',
-                      },
-                      maxLength: {
-                        value: 10,
-                        message: 'Tag too long. Use less than 10 characters',
-                      },
+                      validate: (value) => value.trim().length > 0,
+                      message: 'Tag cannot be empty',
+                      minLength: 3,
+                      maxLength: 10,
                     })}
                     placeholder="Tag"
                     className={styles.tag_input}
                   />
+
+                  {errors?.tags && (
+                    <div className={styles.error_message}>
+                      <p>The tag cannot be empty and must be more than three characters, but no more than 10</p>
+                    </div>
+                  )}
 
                   <button type="button" onClick={() => remove(index)} className={styles.tag_delete}>
                     Delete
