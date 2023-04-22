@@ -1,3 +1,3 @@
 Blog Application
 
-https://blog-mu-two-43.vercel.app/
+https://blog-dinaas.vercel.app/
